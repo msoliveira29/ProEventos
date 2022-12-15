@@ -488,3 +488,6 @@ Thumbs.db
 
 #Angular
 /Front/ProEventos-App/.angular/cache/*
+
+#EF Core Migrations
+/Back/src/ProEventos.Persistence/Migrations/
