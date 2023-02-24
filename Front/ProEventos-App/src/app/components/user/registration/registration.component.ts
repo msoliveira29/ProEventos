@@ -1,5 +1,5 @@
 import { ValidatorField } from './../../../helpers/ValidatorField';
-import { AbstractControlOptions, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControlOptions, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  form!: FormGroup;
+  form!: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: UntypedFormBuilder) { }
 
   get f(): any { return this.form.controls; }
 

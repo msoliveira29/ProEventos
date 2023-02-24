@@ -1,6 +1,6 @@
 import { ValidatorField } from './../../../helpers/ValidatorField';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControlOptions, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { AbstractControlOptions, UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-perfil',
@@ -9,9 +9,9 @@ import { AbstractControlOptions, FormBuilder, Validators, FormGroup } from '@ang
 })
 export class PerfilComponent implements OnInit {
 
-  form!: FormGroup;
+  form!: UntypedFormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.validation();

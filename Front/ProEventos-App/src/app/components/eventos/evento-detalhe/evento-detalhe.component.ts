@@ -2,10 +2,10 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import {
   AbstractControl,
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormArray,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,7 +30,7 @@ export class EventoDetalheComponent implements OnInit {
   modalRef?: BsModalRef;
   eventoId!: number;
   evento = {} as Evento;
-  form!: FormGroup;
+  form!: UntypedFormGroup;
   estadoSalvar = 'post';
   loteAtual = { id: 0, nome: '', indice: 0 };
 
@@ -38,8 +38,8 @@ export class EventoDetalheComponent implements OnInit {
     return this.estadoSalvar === 'put';
   }
 
-  get lotes(): FormArray {
-    return this.form.get('lotes') as FormArray;
+  get lotes(): UntypedFormArray {
+    return this.form.get('lotes') as UntypedFormArray;
   }
 
   get f(): any {
@@ -55,7 +55,7 @@ export class EventoDetalheComponent implements OnInit {
     };
   }
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
     private localeService: BsLocaleService,
     private activatedRouter: ActivatedRoute,
     private eventoService: EventoService,
@@ -126,7 +126,7 @@ export class EventoDetalheComponent implements OnInit {
     this.lotes.push(this.criarLote({ id: 0 } as Lote));
   }
 
-  criarLote(lote: Lote): FormGroup {
+  criarLote(lote: Lote): UntypedFormGroup {
     return this.fb.group({
       id: [lote.id],
       nome: [lote.nome, Validators.required],
@@ -149,7 +149,7 @@ export class EventoDetalheComponent implements OnInit {
     this.form.reset();
   }
 
-  public cssValidator(campoForm: FormControl | AbstractControl | null): any {
+  public cssValidator(campoForm: UntypedFormControl | AbstractControl | null): any {
     return { 'is-invalid': campoForm?.errors && campoForm?.touched };
   }
 
